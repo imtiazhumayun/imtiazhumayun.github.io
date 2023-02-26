@@ -11,29 +11,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <base href="/"> -->
-
-        <!--FACEBOOK-->
-    <!-- <meta property="og:image" content="https://jonbarron.info/mipnerf/img/rays_square.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="682">
-    <meta property="og:image:height" content="682">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jonbarron.info/mipnerf/"/>
-    <meta property="og:title" content="SplineCam" />
-    <meta property="og:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
-
-        TWITTER
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SplineCam" />
-    <meta name="twitter:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
-    <meta name="twitter:image" content="https://jonbarron.info/mipnerf/img/rays_square.png" /> -->
-
-
-<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
-  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
-    <!-- Place favicon.ico in the root directory -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
@@ -53,9 +30,9 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                <b>SplineCam</b>: Exact Visualization of Deep Neural Network Geometry and Decision Boundary</br> 
+                <b>SplineCam</b>: Exact Visualization and Characterization of Deep <br> Network Geometry and Decision Boundary</br> 
                 <small>
-                    Neurips Workshop on Symmetry and Geometry in Neural Representations
+                    Neurips 2022 Workshop on Symmetry and Geometry in Neural Representations
                 </small>
             </h2>
         </div>
@@ -107,16 +84,23 @@
                 <div class="col-md-4 col-md-offset-4 text-center">
                     <ul class="nav nav-pills nav-justified">
                         <li>
-                            <a href="./neurreps_poster.pdf">
-                            <image src="img/poster_thumbnail.png" height="60px">
-                                <h4><strong>Poster</strong></h4>
+                            <a href="#">
+                            <image src="img/paper_logo.jpg" height="60px" style="
+                            border-style: solid;
+                            border-width: thin;
+                            border-color: black;
+                        ">
+                                <h4><strong>Paper</strong></h4>
                             </a>
                         </li>
-                        
                         <li>
-                            <a href="#">
-                            <image src="img/mip_paper_image.jpg" height="60px">
-                                <h4><strong>Paper (Coming Soon)</strong></h4>
+                            <a href="./neurreps_poster.pdf">
+                            <image src="img/poster_thumbnail.png" height="60px" style="
+                            border-style: solid;
+                            border-width: thin;
+                            border-color: black;
+                        ">
+                                <h4><strong>Extended Abstract</strong></h4>
                             </a>
                         </li>
                         <li>
@@ -126,30 +110,61 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/AhmedImtiazPrio/SplineCAM">
                             <image src="img/github.png" height="60px">
-                                <h4><strong>Code (Coming Soon)</strong></h4>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://bit.ly/splinecam-demo">
+                            <image src="img/colab_logo.svg" height="60px">
+                                <h4><strong>Colab</strong></h4>
                             </a>
                         </li>
                     </ul>
                 </div>
         </div>
 
-
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Abstract
                 </h3>
-                <image src="img/3dsdf.png" class="img-responsive" alt="overview"><br>
+                <image src="img/3dsdf.jpg" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
                     Current Deep Network (DN) visualization and interpretability methods rely heavily on data space visualizations such as scoring which dimensions of the data are responsible for their associated prediction or generating new data features or samples that best match a given DN unit or representation. In this paper, we go one step further by developing the first provably exact method for computing the geometry of a DN’s mapping – including its decision boundary – over a specified region of the data space. By leveraging the theory of Continuous Piece-Wise Linear (CPWL) spline DNs, SplineCam exactly computes a DN’s geometry without resorting to approximations such as sampling or architecture simplification. SplineCam applies to any DN architecture based on CPWL nonlinearities, including (leaky-)ReLU, absolute value, maxout, and max-pooling and can also be applied to regression DNs such as implicit neural representations. Beyond decision boundary visualization and characterization, SplineCam enables one to compare architectures, measure generalizability and sample from the decision boundary on or off the manifold.               
                 </p>
             </div>
         </div>
 
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                <video controls="" loop="" width="45%">
+                    <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+                   <source src="img/twocircles.mp4#t=0.001" type="video/mp4">
+                </video>
+                <video controls="" loop="" width="45%">
+                       <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+                      <source src="img/twomoons.mp4#t=0.001" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                    <strong>Video:</strong> Evolution of the partition formed by a depth 5 and width 10 binary classifier MLP, while training on two circles (left) and two moons (right). Dark red line denotes the learned decision boundary*, and black lines denote the region boundaries. Norm of the region-wise slope parameters is used to color each region. (*discontinuities in the decision boundary are cause by a machine precision issue that will be solved in the next release)
+                </p>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Visualize the decision boundary and its evolution
+                </h3>
+                <image src="img/evolution.png" class="img-responsive" alt="overview"><br>
+                    <p class="text-justify">
+                        Decision boundary of a 5 layer convnet during training epochs {50,100,150,200,300} (columns) trained on a binary classification task to classify between Egyptian cat and Tabby Cat classes of tinyimagenet. White points are images from the dataset that were used as anchor points for the 2d-plane cut in the input space. First, we clearly observe that in the first two columns (epoch 50 and 100) not much change occurs to the decision boundar (red line). However, between epoch 100 and 150, a sudden change occurs making the decision boundary move out of the 2D-slice, which then slowly recovers until the end of training (top row). On the other hand when looking at a different 2D-slide of the input space (bottom row) we can see that again between epoch 50 and 100 training does not drastically update the decision boundary, but that between epoch 100 and 150, a sudden change in the decision boundary occurs. It then stays roughly identical (within this slice) until the end of training.
+                    </p>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -171,23 +186,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Visualize the decision boundary and its evolution
-                </h3>
-                <image src="img/evolution.png" class="img-responsive" alt="overview"><br>
-                    <p class="text-justify">
-                        Decision boundary of a 5 layer convnet during training epochs {50,100,150,200,300} (columns) trained on a binary classification task to classify between Egyptian cat and Tabby Cat classes of tinyimagenet. White points are images from the dataset that were used as anchor points for the 2d-plane cut in the input space. First, we clearly observe that in the first two columns (epoch 50 and 100) not much change occurs to the decision boundar (red line). However, between epoch 100 and 150, a sudden change occurs making the decision boundary move out of the 2D-slice, which then slowly recovers until the end of training (top row). On the other hand when looking at a different 2D-slide of the input space (bottom row) we can see that again between epoch 50 and 100 training does not drastically update the decision boundary, but that between epoch 100 and 150, a sudden change in the decision boundary occurs. It then stays roughly identical (within this slice) until the end of training.
-                    </p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
                     Characterize input space regions of Deep Convolutional Neural Networks
                 </h3>
                 <image src="img/dataAugvgg.png" class="img-responsive" alt="overview"><br>
                     <p class="text-justify">
-                        Average partition statistics for 90 tinyimagenet test samples with and without DA training for VGG11 and VGG16. The average volume and number of regions are indicative of partition density whereas eccentricity is indicative of the shape of the regions. For VGG11 a distinct difference in the statistics can be visualized between DA and non-DA training. DA training significantly increases the partition density at test points, which is indicative of better generalizability. On the other hand, the difference reduces for VGG16 while the overall region density increases. This is expected behavior since the VGG16 has significantly more parameters. For both case, the DA models acquired a similar accuracy of 51% on the tinyimagenet-200 classification task
+                        Average partition statistics for 90 tinyimagenet test samples with and without DA training for VGG11 and VGG16. The average volume and number of regions are indicative of partition density whereas eccentricity is indicative of the shape of the regions. For VGG11 a distinct difference in the statistics can be visualized between DA and non-DA training. DA training significantly increases the partition density at test points, which is indicative of better generalizability. On the other hand, the difference reduces for VGG16 while the overall region density increases. This is expected behavior since the VGG16 has significantly more parameters. For both case, the DA models acquired a comparable accuracy on the tinyimagenet-200 classification task
                     </p>
             </div>
         </div>
