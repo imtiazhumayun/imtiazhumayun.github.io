@@ -32,7 +32,7 @@
             <h2 class="col-md-12 text-center">
                 <b>SplineCam</b>: Exact Visualization and Characterization of Deep <br> Network Geometry and Decision Boundary</br> 
                 <small>
-                    CVPR 2023
+                    CVPR 2023 Highlight
                 </small>
             </h2>
         </div>
@@ -63,18 +63,6 @@
                         </a>
                         </br>Rice University
                     </li>
-                    <!-- <li>
-                        <a href="http://www.ricardomartinbrualla.com/">
-                          Ricardo Martin-Brualla
-                        </a>
-                        </br>Google
-                    </li>
-                    <li>
-                        <a href="https://pratulsrinivasan.github.io/">
-                          Pratul P. Srinivasan
-                        </a>
-                        </br>Google
-                    </li> -->
                 </ul>
             </div>
         </div>
@@ -104,9 +92,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://youtu.be/NTXEqGCUDR0">
                             <image src="img/youtube_icon.png" height="60px">
-                                <h4><strong>Video (Coming Soon)</strong></h4>
+                                <h4><strong>Video</strong></h4>
                             </a>
                         </li>
                         <li>
@@ -126,8 +114,24 @@
         </div>
 
         <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                <video autoplay muted loop playsinline width="45%">
+                    <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+                   <source src="img/twocircles.mp4#t=0.001" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline width="45%">
+                       <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+                      <source src="img/twomoons.mp4#t=0.001" type="video/mp4">
+                </video>
+                <p class="text-justify">
+                    <strong>Video:</strong> Evolution of the partition formed by a depth 5 and width 10 binary classifier MLP, while training on two circles (left) and two moons (right). Dark red line denotes the learned decision boundary, and black lines denote the region boundaries. Norm of the region-wise slope parameters is used to color each region.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
+                <h3 style="text-align: center;margin-top: 30px;margin-bottom: 30px;">
                     Abstract
                 </h3>
                 <image src="img/3dsdf.jpg" class="img-responsive" alt="overview"><br>
@@ -137,27 +141,40 @@
             </div>
         </div>
 
-        
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2" style="text-align: center;">
-                <video controls="" loop="" width="45%">
+                <h3 style="padding-bottom: 20px; text-align: center;">
+                    Exact Visualization of DNN partition geometry
+                </h3>
+                <video controls autoplay muted loop playsinline width="80%">
                     <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-                   <source src="img/twocircles.mp4#t=0.001" type="video/mp4">
+                   <source src="img/zoom_in.mp4#t=0.001" type="video/mp4">
                 </video>
-                <video controls="" loop="" width="45%">
-                       <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
-                      <source src="img/twomoons.mp4#t=0.001" type="video/mp4">
-                </video>
-                <p class="text-justify">
-                    <strong>Video:</strong> Evolution of the partition formed by a depth 5 and width 10 binary classifier MLP, while training on two circles (left) and two moons (right). Dark red line denotes the learned decision boundary*, and black lines denote the region boundaries. Norm of the region-wise slope parameters is used to color each region. (*discontinuities in the decision boundary are caused by a machine precision issue)
+                <p class="text-justify" style="padding-top: 10px;">
+                    <strong>Video:</strong> Exact computation allows visualizing partitions upto machine precision. Here we are zooming into the partition of a randomly initialized MLP.
                 </p>
+
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <video controls muted loop playsinline playbackRate="2" width="45%" style="padding-right: 10px;">
+                       <source src="img/mnist_evol.mp4" type="video/mp4">
+                    </video>
+                    <!-- <iframe width="45%" height="auto" src="https://youtu.be/fsQDhL-GqHY" frameborder="0" allowfullscreen></iframe> -->
+                    <img src="img/mnist_adv.jpg" class="img-responsive" alt="mnist adversarial img" width="45%" style="padding-left: 10px;">
+                    <!-- <img src="img/mnist_adv.jpg" alt="Image" style="width: 50%; height: auto;"> -->
+                  </div>
+
+                  <p class="text-justify" style="padding-top: 10px;">
+                    <strong>Video:</strong> (Left) SplineCam can be used to monitor changes in the learned function during training. Here regions are colored by the norm of their slope. (Right) Visualize and compute the margin of adversarial examples from the decision boundary. Here the red star corresponds to an adv. example generated via PGD. Regions colored randomly. 
+                </p>
+
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Visualize the decision boundary and its evolution
+                <h3 style="padding-bottom: 20px; text-align: center;">
+                    Monitor Evolution of Decision Boundary During Training
                 </h3>
                 <image src="img/evolution.png" class="img-responsive" alt="overview"><br>
                     <p class="text-justify">
@@ -168,7 +185,7 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
+                <h3 style="padding-bottom: 20px; text-align: center;">
                     Fast Computation of Partition Geometry
                 </h3>
                 <image src="img/schematic.png" class="img-responsive" alt="overview"><br>
@@ -185,8 +202,8 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Characterize input space regions of Deep Convolutional Neural Networks
+                <h3 style="padding-bottom: 20px; text-align: center;">
+                    Characterize Input Space Regions via Partition Statistics
                 </h3>
                 <image src="img/dataAugvgg.png" class="img-responsive" alt="overview"><br>
                     <p class="text-justify">
@@ -205,12 +222,13 @@
 
 @inproceedings{
 humayun2023splinecam,
-title={SplineCam: Exact Visualization and Characterization of Deep Network Geometry and Decision Boundary},
-author={Ahmed Imtiaz Humayun and Randall Balestriero and Guha Balakrishnan and Richard Baraniuk},
-booktitle={arXiv},
+author={Humayun, Ahmed Imtiaz and Balestriero, Randall and Balakrishnan, Guha and Baraniuk, Richard G.},
+title={SplineCam: Exact Visualization and Characterization of Deep Network Geometry and Decision Boundaries},
+booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+month={June},
 year={2023},
+pages={3789-3798}
 }
-
 
 
 @inproceedings{
