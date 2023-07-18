@@ -23,7 +23,7 @@
               <p>I am a PhD student at <a href="https://dsp.rice.edu/">Rice University</a>, where I work on deep learning theory and generative modeling, advised by Dr. Richard Baraniuk.
               </p>
               <p>
-                My interests lie in interpretation and improvement of deep neural network models via approximation theory, e.g., spline theory. I have received the Lowernstein Fellowship at Rice and have published in ICLR, CVPR, ICASSP, JBHI and INTERSPEECH to name a few. I have also founded and captain <a href="#bengali-ai">Bengali.AI</a>, a community of passionate researchers devoted to the advancement of Bengali language technology by creating open-sourced datasets.
+                My interests lie in interpretation and improvement of deep neural network models via approximation theory, e.g., spline theory. I have received the Lowernstein Fellowship at Rice and have published in ICLR, CVPR, ICASSP, and INTERSPEECH to name a few. I have also founded and captain <a href="#bengali-ai">Bengali.AI</a>, a community of passionate researchers devoted to the advancement of Bengali language technology by creating open-sourced datasets.
               </p>
               <p style="text-align:center">
                 <a href="mailto:ahmed.imtiaz.prio@gmail.com">Email</a> &nbsp/&nbsp
@@ -44,7 +44,7 @@
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Research</heading>
               <p>
-                My research transects the domains of deep learning theory, generative modeling, optimization, and signal processing. Some of my representative projects are listed below. 
+                My research transects the domains of deep learning theory, generative modeling, interpretability, and optimization. Some of my representative projects are listed below. 
               </p>
             </td>
           </tr>
@@ -79,34 +79,65 @@
             </td>
           </tr>
 
-
+          
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <img src='images/dec_boundary.jpg' width="160">
+                <img src='images/selfconsume.jfif' width="160">
+              </div>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+							<a href="https://arxiv.org/abs/2307.01850">
+                <papertitle>Self-consuming Generative Models go MAD</papertitle>
+              </a>
+              <br>
+              <a href="#">Sina Alemohammad*</a>,
+              <a href="#">Josue Casco-Rodriguez*</a>,
+              <a href="#">Lorenzo Luzi</a>,
+              <strong>Ahmed Imtiaz Humayun</strong>,
+              <a href="#">Hossain Babaei</a>,
+              <a href="#">Daniel Lejeune</a>,
+              <a href="#">Ali Siahkoohi</a>,
+              <a href="https://richb.rice.edu/">Richard Baraniuk</a>
+              <br>
+        <em>ArXiv 2023</em>
+              <br>
+              <a href="https://arxiv.org/abs/2307.01850">arXiv</a>
+              /
+              <a href="https://futurism.com/ai-trained-ai-generated-data">news</a>
+              <p></p>
+              <p>We study the phenomenon of training new generative models with synthetic data from previous generative models. Our primary conclusion is that without enough fresh real data in each generation of a self-consuming or autophagous loop, future generative models are doomed to have their quality (precision) or diversity (recall) progressively decrease.</p>
+            </td>
+          </tr>
+          
+
+          
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <img src='images/proRobust.png' width="150">
               </div>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
 							<a href="./splinecam/index.html">
-                <papertitle>Exact Visualization of Deep Neural Network Geometry and Decision Boundary</papertitle>
+                <papertitle>Provable Instance Specific Robustness via Linear Constraints</papertitle>
               </a>
               <br>
-              <strong>Ahmed Imtiaz Humayun</strong>,
+              <strong>Ahmed Imtiaz Humayun*</strong>,
+              <a href="#">Josue Casco-Rodriguez*</a>,
               <a href="https://scholar.google.com/citations?user=S1x_xqcAAAAJ&hl=en">Randall Balestriero</a>,
               <a href="https://richb.rice.edu/">Richard Baraniuk</a>
               <br>
-        <em>NeurIPS 2022 Workshop on Symmetry and Geometry (NeurReps)</em>
+        <em>ICML 2023 AdvML Workshop</em>
               <br>
               <a href="./splinecam/index.html">website</a>
         /
-              <a href="https://openreview.net/forum?id=VSLbmsoZxai">arXiv</a>
-        /
-              <a href="./splinecam/neurreps_poster.pdf">poster</a>
+              <a href="#">arXiv (coming soon)</a>
               <p></p>
-              <p>Using spline theory, we present a method for exact visualization of deep neural networks that allows us to visualize the decision boundary and also sample arbitrarily many inputs that provably lie on the model's decision boundary </p>
+              <p>Using spline theory, we present a novel method for imposing analytical constraints directly on the decision boundary for provable robustness. Our method can provably ensure robustness for any set of instances, e.g. training samples from a specific class, against adversarial, backdoor or poisoning attack.</p>
             </td>
           </tr>
-
+          
 
 
 
@@ -178,6 +209,36 @@
               <p> A novel and theoretically motivated latent space sampler for any pre-trained DGN, that produces samples uniformly distributed on the learned output manifold. Applications in fairness and data augmentation.</p>
             </td>
           </tr>
+
+
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <img src='images/dec_boundary.jpg' width="160">
+              </div>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+							<a href="./splinecam/index.html">
+                <papertitle>Exact Visualization of Deep Neural Network Geometry and Decision Boundary</papertitle>
+              </a>
+              <br>
+              <strong>Ahmed Imtiaz Humayun</strong>,
+              <a href="https://scholar.google.com/citations?user=S1x_xqcAAAAJ&hl=en">Randall Balestriero</a>,
+              <a href="https://richb.rice.edu/">Richard Baraniuk</a>
+              <br>
+        <em>NeurIPS 2022 Workshop on Symmetry and Geometry (NeurReps)</em>
+              <br>
+              <a href="./splinecam/index.html">website</a>
+        /
+              <a href="https://openreview.net/forum?id=VSLbmsoZxai">arXiv</a>
+        /
+              <a href="./splinecam/neurreps_poster.pdf">poster</a>
+              <p></p>
+              <p>Using spline theory, we present a method for exact visualization of deep neural networks that allows us to visualize the decision boundary and also sample arbitrarily many inputs that provably lie on the model's decision boundary </p>
+            </td>
+          </tr>
+
+
 
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -438,7 +499,7 @@
               <br>
         <em>INTERSPEECH</em>, 2023
               <br>
-              <a href="#">competition</a>
+              <a href="https://kaggle.com/c/bengaliai-speech">competition</a>
         /
               <a href="https://arxiv.org/abs/2305.09688">arXiv</a>
               <p></p>
@@ -463,14 +524,16 @@
               <a href="">M Rahman</a>,
               <a href="">SM Hossen</a>,
               <a href="">+11 authors</a>,
-              <a href="">AS Sushmit</a>,
-              <strong>Ahmed Imtiaz Humayun</strong>
+              <a href="">AS Sushmit*</a>,
+              <strong>Ahmed Imtiaz Humayun*</strong>
               <br>
         <em>ICDAR</em>, 2023
               <br>
               <a href="https://www.kaggle.com/datasets/reasat/badlad-train/">dataset</a>
         /
               <a href="https://arxiv.org/abs/2303.05325">arXiv</a>
+        /
+              <a href="https://kaggle.com/c/dlsprint2">competition</a>
               <p></p>
               <p>First Multi-Domain Bengali Document Layout Analysis Dataset, with 700K polygon annotations from image captured documents in the wild.</p>
             </td>
