@@ -30,9 +30,9 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                <b>Grokking</b> Happens All the Time and Here is Why</br> 
+                Deep Networks <b>Always Grok</b> and Here is Why</br> 
                 <small>
-                    Coming Soon!
+                    ArXiv 2024
                 </small>
             </h2>
         </div>
@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://github.com/AhmedImtiazPrio/grok-adversarial">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
                             </a>
@@ -110,9 +110,14 @@
                 <p class="text-justify">
                     Grokking or delayed generalization, is a phenomenon where generalization in a Deep Neural Network (DNN) occurs long after achieving near zero training error. Previous studies have reported the occurrence of grokking in controlled settings, e.g., for transformers trained on algorithmic datasets (Power et al., 2022), or for DNNs initialized with large-norm parameters (Liu et al.,2022). We instead observe that for a large number of standard and practical settings, e.g., while training a CNN on CIFAR10, or a Resnet on Imagenette, DNNs grok adversarial examples, i.e., adversarial robustness emerges long after interpolation and/or generalization. We present a theoretically motivated explanation behind the emergence of delayed generalization and delayed robustness. We find that both phenomenon are tied, originating from a phase transition in the DNN’s input space partition geometry during training. We provide the first evidence that a migration of DNN ’linear regions’ occurs, making the function progresively linear around training samples and non-linear around the decision boundary during the latest phase of training. This migration provably induces grokking, as the emergence of a robust partition widens the linear regions around the training samples.
                 </p>
-                <center><image src="img/cifar10resnetgrok.png" class="img-responsive" alt="overview" height="200px"></center><br>
+                <div style="display: inline-flex;flex-wrap: inherit;justify-content: center;">
+                  <img src="img/cnn_cifar10_nobn.svg" alt="Cifar10-CNN" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                  <img src="img/cnn_cifar100_nobn.svg" alt="Cifar100-CNN" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                  <img src="img/resnet_cifar10_nobn.svg" alt="Cifar10-Resnet" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                  <img src="img/resnet_imagenette_nobn.svg" alt="Imagenette-Resnet" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                </div>
                 <p class="text-justify">
-                    Fig: <b>Deep Networks grok all the time.</b> When training a Resnet18 on CIFAR10 without any controlled initialization as in (liu2022omnigrok), the network starts grokking adversarial examples generated using Projected Gradient Descent after 1e4 optimization steps (left) and attains almost equal robustness and generalization performance after 2x1e5 steps.  We see that prior to grokking, the network undergoes a phase change during training in the <it>local complexity</it>, i.e., the local density of non-linearities in the input space (right). After test accuracy converges, the network starts 'migrating' its non-linearities away from the data points, and closer to the decision boundary (in video above for MLP trained on MNIST) eventually reducing the complexity of the learned function around the data points. This increase and subsequent decrease in non-linearity is a ubiquitous phenomenon for a wide variety of networks and training settings (see paper). We see that this particular training dynamic always results in delayed generalizaion or robustness.                    
+                    Fig: <b>Deep Networks grok adversarial examples.</b> When training a Resnet18 on CIFAR10 without any controlled initialization as in (liu2022omnigrok), the network starts grokking adversarial examples generated using Projected Gradient Descent after 1e4 optimization steps (left) and attains almost equal robustness and generalization performance after 2x1e5 steps.  We see that prior to grokking, the network undergoes a phase change during training in the <it>local complexity</it>, i.e., the local density of non-linearities in the input space (right). After test accuracy converges, the network starts 'migrating' its non-linearities away from the data points, and closer to the decision boundary (in video above for MLP trained on MNIST) eventually reducing the complexity of the learned function around the data points. This increase and subsequent decrease in non-linearity is a ubiquitous phenomenon for a wide variety of networks and training settings (see paper). We see that this particular training dynamic always results in delayed generalizaion or robustness.                    
                 </p>
             </div>
         </div>
