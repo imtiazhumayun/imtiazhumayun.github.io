@@ -138,7 +138,7 @@
             </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3 style="padding-bottom: 20px; text-align: center;">A Phase Change in the DNN Partition Geometry Leads to Grokking!</h3>
+                <h3 style="padding-bottom: 20px; text-align: center;">A Phase Change in the DNN Partition <br> Geometry Leads to Grokking!</h3>
                 <div style="display: flex;justify-content: center;align-items: center;padding-top: 5%;padding-bottom: 5px/* height: 400px; */">
                             <video autoplay="" muted="" loop="" playsinline="" playbackrate="2" width="100%" style="max-height: 400px;padding-right: 5px;width: 50%;">
                                <source src="img/splinecam_mnist.mp4#t=0.001" type="video/mp4">
@@ -225,13 +225,20 @@
         </div>
 
         <script>
-          function changeColor(element) {
-            if (element.getAttribute("fill") === "white") {
-              element.setAttribute("fill", "green");
-            } else {
-              element.setAttribute("fill", "white");
-            }
-          }
+              function changeColor(clickedElement) {
+                // Reset fill color for all polygons
+                const polygons = document.querySelectorAll('polygon');
+                polygons.forEach(polygon => {
+                  polygon.setAttribute('fill', 'white');
+                });
+            
+                // Set fill color for the clicked polygon
+                if (clickedElement.getAttribute('fill') === 'white') {
+                  clickedElement.setAttribute('fill', 'green');
+                } else {
+                  clickedElement.setAttribute('fill', 'white');
+                }
+              }
         </script>
 
 
