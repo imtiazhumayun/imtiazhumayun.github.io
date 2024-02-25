@@ -380,6 +380,72 @@
             </div>
         </div>
 
+    
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <svg width="200" height="200">
+                  <!-- First polygon -->
+                  <polygon points="50,10 10,90 90,90" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this, 'img/toy_network/region_0.svg')"></polygon>
+                  
+                  <!-- Second polygon -->
+                  <polygon points="150,10 110,90 190,90" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this, 'img/toy_network/region_1.svg')"></polygon>
+                  
+                  <!-- Third polygon -->
+                  <polygon points="50,110 10,190 90,190" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this, 'img/toy_network/region_2.svg')"></polygon>
+                  
+                  <!-- Fourth polygon -->
+                  <polygon points="150,110 110,190 190,190" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this, 'img/toy_network/region_3.svg')"></polygon>
+                </svg>
+                
+                <svg id="imageContainer" width="200" height="200">
+                  <!-- Placeholder for the initial state, replace with the default image if needed -->
+                  <rect width="100%" height="100%" fill="lightgray" />
+                </svg>
+                
+                <script>
+                  function changeColor(clickedElement, imagePath) {
+                    // Reset fill color for all polygons
+                    const polygons = document.querySelectorAll('polygon');
+                    polygons.forEach(polygon => {
+                      polygon.setAttribute('fill', 'white');
+                    });
+                
+                    // Set fill color for the clicked polygon
+                    if (clickedElement.getAttribute('fill') === 'white') {
+                      clickedElement.setAttribute('fill', 'green');
+                      // Change the image in the second SVG based on the clicked polygon
+                      updateImage(imagePath);
+                    } else {
+                      clickedElement.setAttribute('fill', 'white');
+                      // Reset the image when polygon is deselected
+                      updateImage('');
+                    }
+                  }
+                
+                  function updateImage(imagePath) {
+                    const imageContainer = document.getElementById('imageContainer');
+                    // Clear existing content
+                    imageContainer.innerHTML = '';
+                    
+                    if (imagePath) {
+                      // Add the new image
+                      const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+                      image.setAttribute('href', imagePath);
+                      image.setAttribute('width', '100%');
+                      image.setAttribute('height', '100%');
+                      imageContainer.appendChild(image);
+                    } else {
+                      // Placeholder or default behavior when no image is selected
+                      const placeholderRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                      placeholderRect.setAttribute('width', '100%');
+                      placeholderRect.setAttribute('height', '100%');
+                      placeholderRect.setAttribute('fill', 'lightgray');
+                      imageContainer.appendChild(placeholderRect);
+                    }
+                  }
+                </script>
+            </div>
+        </div>
                         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
