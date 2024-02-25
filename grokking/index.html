@@ -138,7 +138,7 @@
             </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3 style="padding-bottom: 20px; text-align: center;">A Phase Change in the DNN Partition <br> Geometry Leads to Grokking!</h3>
+                <h3 style="padding-bottom: 0px; text-align: center;">A Phase Change in the DNN Partition Geometry <br> Leads to Grokking</h3>
                 <div style="display: flex;justify-content: center;align-items: center;padding-top: 5%;padding-bottom: 5px/* height: 400px; */">
                             <video autoplay="" muted="" loop="" playsinline="" playbackrate="2" width="100%" style="max-height: 400px;padding-right: 5px;width: 50%;">
                                <source src="img/splinecam_mnist.mp4#t=0.001" type="video/mp4">
@@ -148,9 +148,20 @@
                 <p class="text-justify">
                     Fig: <b>Grokking Visualized.</b> Every neuron in a DNN learns feature thresholds/boundaries in the input space, dividing it into active and inactive regions. In the video we visualize the analytically computed partition formed by the neuron-thresholds (black lines) of a ReLU-MLP, around three MNIST training samples (white stars) in the input space. The DNN input-output mapping is linear/affine within each convex region, colored by the norm of the affine slope. In right-top we present the Train, Test and Adversarial accuracy (robustness) and right-bottom we present the local complexity, i.e., density of non-linearities, around all training, test or random data points. We see that the network starts grokking adversarial samples as soon as a phase change occurs in the partition (left), as well as phase change in the local complexity (right-bottom) approximately after 10,000 optimization steps.
                 </p>
-                 <div style="display: inline-flex;flex-wrap: inherit;justify-content: center;padding-top: 15px;padding-bottom: 15px">
-                          <img src="img/grokking_acc.svg" alt="grok mnist acc" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
-                          <img src="img/grokking_lc_train.svg" alt="grok mnist lc train" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
+                <div style="display: flex; flex-wrap: inherit; justify-content: center; padding-top: 15px; padding-bottom: 15px">
+                    <div style="text-align: center; width: 33%;">
+                        <p>Accuracy</p>
+                        <img src="img/grokking_acc.svg" alt="grok mnist acc" title="Accuracy Chart" style="width: 100%; height: auto; margin-bottom: 10px;">
+                    </div>
+                    <div style="text-align: center; width: 33%;">
+                        <p>Train Local Complexity</p>
+                        <img src="img/grokking_lc_train.svg" alt="grok mnist lc train" title="Training Loss Chart" style="width: 100%; height: auto; margin-bottom: 10px;">
+                    </div>
+                
+                    <div style="text-align: center; width: 33%;">
+                        <p>Test Local Complexity</p>
+                        <img src="img/grokking_lc_test.svg" alt="grok mnist lc train" title="Testing Loss Chart" style="width: 100%; height: auto; margin-bottom: 10px;">
+                    </div>
                 </div>
             </div>
         </div>
