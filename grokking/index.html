@@ -211,36 +211,40 @@
                 layerwise explanation.  
             </div>
         </div>
-        <svg style="display: block; justify-content: center;" height="200" width="200">
-        <polygon points="50,10 10,90 90,90" fill="white" onclick="changeColor(this)"></polygon>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <svg style="display: block; justify-content: center;" height="200" width="200">
+                  <!-- First polygon -->
+                  <polygon points="50,10 10,90 90,90" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this)"></polygon>
+                  
+                  <!-- Second polygon -->
+                  <polygon points="150,10 110,90 190,90" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this)"></polygon>
+                  
+                  <!-- Third polygon -->
+                  <polygon points="50,110 10,190 90,190" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this)"></polygon>
+                  
+                  <!-- Fourth polygon -->
+                  <polygon points="150,110 110,190 190,190" fill="white" stroke="black" stroke-width="2" onclick="changeColor(this)"></polygon>
+                </svg>
         
-        <!-- Second polygon -->
-        <polygon points="150,10 110,90 190,90" fill="white" onclick="changeColor(this)"></polygon>
-        
-        <!-- Third polygon -->
-        <polygon points="50,110 10,190 90,190" fill="white" onclick="changeColor(this)"></polygon>
-        
-        <!-- Fourth polygon -->
-        <polygon points="150,110 110,190 190,190" fill="white" onclick="changeColor(this)"></polygon>
-        </svg>
-
-        <script>
-              function changeColor(clickedElement) {
-                // Reset fill color for all polygons
-                const polygons = document.querySelectorAll('polygon');
-                polygons.forEach(polygon => {
-                  polygon.setAttribute('fill', 'white');
-                });
-            
-                // Set fill color for the clicked polygon
-                if (clickedElement.getAttribute('fill') === 'white') {
-                  clickedElement.setAttribute('fill', 'green');
-                } else {
-                  clickedElement.setAttribute('fill', 'white');
-                }
-              }
-        </script>
-
+                <script>
+                      function changeColor(clickedElement) {
+                        // Reset fill color for all polygons
+                        const polygons = document.querySelectorAll('polygon');
+                        polygons.forEach(polygon => {
+                          polygon.setAttribute('fill', 'white');
+                        });
+                    
+                        // Set fill color for the clicked polygon
+                        if (clickedElement.getAttribute('fill') === 'white') {
+                          clickedElement.setAttribute('fill', 'green');
+                        } else {
+                          clickedElement.setAttribute('fill', 'white');
+                        }
+                      }
+                </script>
+            </div>
+        </div>
 
                         
         <div class="row">
