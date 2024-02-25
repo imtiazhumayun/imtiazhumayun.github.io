@@ -356,7 +356,7 @@
                             <polygon points="114.60008270624489,98.62252075836665 112.43400270285362,101.65849615187679 121.48612787224643,103.29873341010925" fill="green" stroke="black" stroke-width="1" onclick="changeColor(this, 'img/toy_network/region_144.svg')"></polygon>
                         </svg>
                         
-                        <svg id="imageContainer" width="200" height="200">
+                        <svg id="imageContainer" width="200" height="200" style="margin-left : 30px;">
                           <!-- Placeholder for the initial state, replace with the default image if needed -->
                             <image href="img/toy_network/region_144.svg" width="100%" height="100%"></image>
                         </svg>
@@ -405,7 +405,12 @@
                   }
                 </script>
                 <p>
-                    Fig Interactive: <b>Linear Regions and Circuits. </b>
+                    Fig Interactive: <b>Linear Regions and Circuits.</b> Input space spline partition (left) and network representation (right) for a randomly initialized 5 layer ReLU-MLP with 5 neurons in each layer,
+                    2D input space and 1D output space. Neurons are colored blue if active and orange if inactive. Click and select any of the spline partition regions. 
+                    Since the input-output mapping is linear per region, the activation/deactivation pattern of neurons remain the same for all vectors from any given region in the input space.
+                    This means that each region creates a unique <it>circuit</it> (Olah et al., 2020) comprising of a subset of neurons in the network. The circuit for any two neighboring regions
+                    vary by only one neuron being activated/deactivated. This is due to the fact that the knots of the spline partition are the zero level sets of the neurons in the input space. This means that
+                    crossing a boundary is equivalent to flipping on or off a neuron in the circuit. 
                 </p>
             </div>
         </div>
