@@ -154,9 +154,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3 style="padding-bottom: 20px; text-align: center;">Local Complexity - A New Progress Measure</h3>
-
+                <div style="display: flex;justify-content: center;padding-top: 15px;padding-bottom: 15px">
+                  <img src="img/toy_spline.svg" alt="Toy input" style="width: 500px;max-width: 100%;height: auto;margin-bottom: -10px;margin-top: -30px;">
+                </div>
                 <p class="text-justify">
-                    Progress Measures are defined as scalars that have a causal link with the training state of a DNN. We propose local complexity as a fine-grained progress measure,
+                    Fig: <b>Linear Regions and Local Complexity.</b> Input space partition formed by a DNN trained to regress the piecewise function defined below (left) and graph of the learned function (right). Each partition region is randomly colored, and performs a single linear operation going from the input to the output. Learned function is more complex, i.e., densely changes the linear operation being performed, where the target function is non-flat.
+                </p>
+                <p class="text-justify">
+                    <it>Progress Measures</it> are defined as scalars that have a causal link with the training state of a DNN. We propose local complexity as a fine-grained progress measure,
                     that at a high level, denotes how complex a DNN input-output mapping is for some local neighborhood in the input space. <it>How can we measure local complexity?</it> DNNs are continuous piecewise affine splines, therefore 
                     whenever it is trained to regress a function (could be a classification objective as well), it forms a piecewise linear spline approximation of the target function. For example,
                     suppose we are training an MLP to regress a target function \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \) defined as,
@@ -176,15 +181,24 @@
                   <img src="img/toy_spline_graph.png" alt="Toy graph" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                 </div>
                  -->
-               <div style="display: flex;justify-content: center;padding-top: 15px;padding-bottom: 15px">
-                  <img src="img/toy_spline.svg" alt="Toy input" style="width: 500px;max-width: 100%;height: auto;margin-bottom: -10px;margin-top: -30px;">
-                </div>
-                <p class="text-justify">
-                    Fig: <b>Linear Regions and Local Complexity.</b> Input space partition formed by a DNN trained to regress the piecewise function defined above (left) and graph of the learned function (right). Each partition region is randomly colored, and performs a single linear operation going from the input to the output. Learned function is more complex, i.e., densely changes the linear operation being performed, where the target function is non-flat.
-                </p>
+               
                 <p>
                     Since the function is non-flat only for \( x_1 < 0 \) the DNN assigns more spline knots and forms more 'linear regions' for \( x_1<0 \), just like we would expect in any spline
-                    interpolation task. A higher number of linear regions or non-linearities in some input domain, therefore denotes that the learned input-output mapping is more complex within that domain.  
+                    interpolation task. A higher number of linear regions or non-linearities in some input domain, therefore denotes that the learned input-output mapping is more complex within that domain. 
+                    Through local complexity we can therefore measure how non-linear a function is in some input space locality. For arbitrary dimensional input spaces, local complexity is computed for 
+                    cross-polytopal input space neighborhoods with a given datapoint as a centroid. During training, these neighborhoods act as probes in the input space where we measure the complexity of the learned 
+                    function throughout training, therefore monitoring how the non-linearity across different parts of the input space changes.
+                </p>
+                <div style="display: flex;justify-content: center;padding-top: 15px;padding-bottom: 15px">
+                  <img src="img/local_complexity_approximation.svg" alt="Toy input" style="width: 100%;max-width: 100%;height: auto;">
+                </div>
+                <p class="text-justify">
+                    Fig: <b>Local Complexity Approximation.<b> 1) Given a point in the input space \( x\in \mathbb{R}^D \), we start by sampling \( P \) orthonormal vectors
+                        \( \{v_1,v_2,...,v_P\} \) to obtain cross-polytopal frame \( \mathbf{V}_x=\{x \pm r*v_p \forall p\} \) centered on \( x \),
+                        where \( r \) is a radius parameter. 2) If any neuron hyperplane intersects the neighborhood \( conv(\mathbf{V}_x) \) then the pre-activation sign will be
+                        different for the different vertices. We can therefore count the number neurons for a given layer, which results in sign changes in the pre-activation of 
+                        \( \mathbf{V}_x \) to quantify local complexity \( x \) for that layer. 3) By embedding \( \mathbf{V}_x \) to the input of the next layer, 
+                        we can obtain a coarse approximation of the local neighborhood of \( x \) and continue computing local complexity in a layerwise fashion.
                 </p>
             </div>
         </div>  
