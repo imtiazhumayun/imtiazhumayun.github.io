@@ -162,6 +162,12 @@
                         <p>Test Local Complexity</p>
                         <img src="img/grokking_lc_test.svg" alt="grok mnist lc train" title="Testing Loss Chart" style="width: 100%; height: auto; margin-bottom: 10px;">
                     </div>
+                    <p>
+                        Fig: <b>Delayed Generalization.</b> Grokking induced for test samples via large-norm initialization (Liu et al., 2022) for MLPs for varying depth being trained on MNIST. 
+                        We see that the local complexity (LC) training dynamics is similar to the case of delayed robustness. LC ascents with higher concentration around training samples, following
+                        which it descends for training, test and random samples as well. <it> Where do the non-linearities migrate to? </it> We see that during the last phase of training, the non-linearities migrate
+                        towards the decision boundary, linearizing the function everywhere else in the process.
+                    </p>
                 </div>
             </div>
         </div>
