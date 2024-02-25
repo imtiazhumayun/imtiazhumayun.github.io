@@ -162,13 +162,22 @@
                     suppose we are training an MLP to regress a target function \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \), such that \( f(x_1,x_2) = sin(x_1) + cos(x_2) \) if \( x_1 < 0 \) else \( 0 \). 
                     Since the function is non-flat only for \( x_1 < 0 \) the DNN would assign more knots/pieces to approximate the part with more curvature. Just like how we would expect in spline interpolation.  
                 </p>
+                <p>                
+                      \[
+                      I_A(x) = 
+                      \begin{cases} 
+                      1 & \text{if } x \in A \\
+                      0 & \text{if } x \notin A 
+                      \end{cases}
+                      \]
+                </p>
                 
                 <div style="display: inline-flex;flex-wrap: inherit;justify-content: center;padding-top: 15px;padding-bottom: 15px">
                   <img src="img/toy_spline_input.png" alt="Toy input" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                   <img src="img/toy_spline_graph.png" alt="Toy graph" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                 </div>
                 <p class="text-justify">
-                    Fig: <b>Local Complexity is a measure of smoothness.</b>  
+                    Fig: <b>Local Complexity is a measure of smoothness.</b> Left: Input space partition formed by a DNN trained to regress the function \( f(x_1,x_2) = {sin(x_1) + cos(x_2)} \) if \( x_1 < 0 \) else \( 0 \).
                 </p>
             </div>
         </div>  
