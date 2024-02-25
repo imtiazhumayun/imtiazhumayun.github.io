@@ -159,25 +159,28 @@
                     Progress Measures are defined as scalars that have a causal link with the training state of a DNN. We propose local complexity as a fine-grained progress measure,
                     that at a high level, denotes how complex a DNN input-output mapping is for some local neighborhood in the input space. <it>How can we measure local complexity?</it> DNNs are continuous piecewise affine splines, therefore 
                     whenever it is trained to regress a function (could be a classification objective as well), it forms a piecewise linear spline approximation of the target function. For example,
-                    suppose we are training an MLP to regress a target function \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \), such that \( f(x_1,x_2) = sin(x_1) + cos(x_2) \) if \( x_1 < 0 \) else \( 0 \). 
-                    Since the function is non-flat only for \( x_1 < 0 \) the DNN would assign more knots/pieces to approximate the part with more curvature. Just like how we would expect in spline interpolation.  
+                    suppose we are training an MLP to regress a target function \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \) defined as,
+<!--                     \( f(x_1,x_2) = sin(x_1) + cos(x_2) \) if \( x_1 < 0 \) else \( 0 \). -->
                 </p>
                 <p>                
                       \[
-                      I_A(x) = 
+                      f(x_1, x_2) = 
                       \begin{cases} 
-                      1 & \text{if } x \in A \\
-                      0 & \text{if } x \notin A 
+                      sin(x_1) + cos(x_2) & \text{if } x_1 < 0 \\
+                      0 & \text{otherwise} 
                       \end{cases}
                       \]
                 </p>
-                
                 <div style="display: inline-flex;flex-wrap: inherit;justify-content: center;padding-top: 15px;padding-bottom: 15px">
                   <img src="img/toy_spline_input.png" alt="Toy input" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                   <img src="img/toy_spline_graph.png" alt="Toy graph" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                 </div>
                 <p class="text-justify">
-                    Fig: <b>Local Complexity is a measure of smoothness.</b> Left: Input space partition formed by a DNN trained to regress the function \( f(x_1,x_2) = {sin(x_1) + cos(x_2)} \) if \( x_1 < 0 \) else \( 0 \).
+                    Fig: <b>Linear Regions and Local Complexity.</b> Input space partition formed by a DNN trained to regress the piecewise function defined above (left) and graph of the learned function (right).
+                </p>
+                <p>
+                    Since the function is non-flat only for \( x_1 < 0 \) the DNN assigns more spline knots and forms more 'linear regions' for \( x_1<0 \), just like we would expect in any spline
+                    interpolation task. A higher number of linear regions or non-linearities in some input domain, therefore denotes that the learned input-output mapping is more complex within that domain.  
                 </p>
             </div>
         </div>  
