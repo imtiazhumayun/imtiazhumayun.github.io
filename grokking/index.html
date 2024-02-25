@@ -148,6 +148,10 @@
                 <p class="text-justify">
                     Fig: <b>Grokking Visualized.</b> Every neuron in a DNN learns feature thresholds/boundaries in the input space, dividing it into active and inactive regions. In the video we visualize the analytically computed partition formed by the neuron-thresholds (black lines) of a ReLU-MLP, around three MNIST training samples (white stars) in the input space. The DNN input-output mapping is linear/affine within each convex region, colored by the norm of the affine slope. In right-top we present the Train, Test and Adversarial accuracy (robustness) and right-bottom we present the local complexity, i.e., density of non-linearities, around all training, test or random data points. We see that the network starts grokking adversarial samples as soon as a phase change occurs in the partition (left), as well as phase change in the local complexity (right-bottom) approximately after 10,000 optimization steps.
                 </p>
+                 <div style="display: inline-flex;flex-wrap: inherit;justify-content: center;padding-top: 15px;padding-bottom: 15px">
+                          <img src="img/grokking_acc.svg" alt="grok mnist acc" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
+                          <img src="img/grokking_lc_train.svg" alt="grok mnist lc train" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
+                </div>
             </div>
         </div>
         
@@ -417,9 +421,8 @@
                         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3 style="padding-bottom: 20px; text-align: center;">Connecting Spline Theory and Mechanistic Interpretability</h3>
-                This progress measure and nanda measure connection. 
-                layerwise explanation.  
+                <h3 style="padding-bottom: 20px; text-align: center;">Generalization/Memorization vs Local Complexity Dynamics</h3>
+                More data can delay or hasten. 
             </div>
         </div>
     </div>
