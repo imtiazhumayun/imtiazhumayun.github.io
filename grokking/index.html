@@ -118,13 +118,13 @@
                           <img src="img/resnet_imagenette_nobn.svg" alt="Imagenette-Resnet" style="width: 100%; max-width: 50%; height: auto; margin-bottom: 10px;">
                 </div>
         <!--                 <p class="text-justify">
-                            Fig: <b>Deep Networks grok adversarial examples.</b> When training a Resnet18 on CIFAR10 without any controlled initialization as in (liu2022omnigrok), the network starts grokking adversarial examples generated using Projected Gradient Descent after 1e4 optimization steps (left) and attains almost equal robustness and generalization performance after 2x1e5 steps.  We see that prior to grokking, the network undergoes a phase change during training in the <it>local complexity</it>, i.e., the local density of non-linearities in the input space (right). After test accuracy converges, the network starts 'migrating' its non-linearities away from the data points, and closer to the decision boundary (in video above for MLP trained on MNIST) eventually reducing the complexity of the learned function around the data points. This increase and subsequent decrease in non-linearity is a ubiquitous phenomenon for a wide variety of networks and training settings (see paper). We see that this particular training dynamic always results in delayed generalizaion or robustness.                    
+                            Fig: <b>Deep Networks grok adversarial examples.</b> When training a Resnet18 on CIFAR10 without any controlled initialization as in (liu2022omnigrok), the network starts grokking adversarial examples generated using Projected Gradient Descent after 1e4 optimization steps (left) and attains almost equal robustness and generalization performance after 2x1e5 steps.  We see that prior to grokking, the network undergoes a phase change during training in the <em>local complexity</em>, i.e., the local density of non-linearities in the input space (right). After test accuracy converges, the network starts 'migrating' its non-linearities away from the data points, and closer to the decision boundary (in video above for MLP trained on MNIST) eventually reducing the complexity of the learned function around the data points. This increase and subsequent decrease in non-linearity is a ubiquitous phenomenon for a wide variety of networks and training settings (see paper). We see that this particular training dynamic always results in delayed generalizaion or robustness.                    
                         </p> -->
                 <p class="text-justify">
                     Fig: <b>Grokking Adversarial Examples.</b> We observe that Deep Neural Networks grok adversarial examples, i.e.,
                     obtain delayed robustness, without any special intervention long after test set performance has converged. 
-                    We present a novel model/data/training agnostic progress measure -- <it>local complexity</it> -- which undergoes a phase change
-                    when <it>delayed generalization</it> and/or <it>delayed robustness</it> occurs. We present the training dynamics of robustness and 
+                    We present a novel model/data/training agnostic progress measure -- <em>local complexity</em> -- which undergoes a phase change
+                    when <em>delayed generalization</em> and/or <em>delayed robustness</em> occurs. We present the training dynamics of robustness and 
                     local complexity for a CNN trained on CIFAR10 (left) and a ResNet18 trained on Imagenette (right).
                     We see that during training, complexity around data points increases while the test
                     performance peaks. Following that a phase change occurs resulting in a decline in complexity around the data points; this is when grokking occurs.
@@ -140,14 +140,14 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Grokking, or <it>delayed generalization</it>, is a phenomenon where generalization in a deep neural network (DNN) 
+                    Grokking, or <em>delayed generalization</em>, is a phenomenon where generalization in a deep neural network (DNN) 
                     occurs long after achieving near zero training error. Previous studies have reported the occurrence of grokking 
                     in specific controlled settings, such as DNNs initialized with large-norm parameters or transformers trained on algorithmic datasets.
                     We demonstrate that grokking is actually much more widespread and materializes in a wide range of practical settings, such as training
-                    of a convolutional neural network (CNN) on CIFAR10 or a Resnet on Imagenette. We introduce the new concept of <it> delayed robustness </it>,
+                    of a convolutional neural network (CNN) on CIFAR10 or a Resnet on Imagenette. We introduce the new concept of <em> delayed robustness </em>,
                     whereby a DNN groks adversarial examples and becomes robust, long after interpolation and/or generalization. We develop an analytical explanation
-                    for the emergence of both delayed generalization and delayed robustness based on the <it> local complexity </it> of a DNN's input-output mapping.
-                    Our <it>local complexity</it> measure quantifies the density of so-called ``linear regions’’ (aka, spline partition regions) that tile the DNN
+                    for the emergence of both delayed generalization and delayed robustness based on the <em> local complexity </em> of a DNN's input-output mapping.
+                    Our <em>local complexity</em> measure quantifies the density of so-called ``linear regions’’ (aka, spline partition regions) that tile the DNN
                     input space, and serves as a utile progress measure for training. We provide the first evidence that for classification problems, the linear regions 
                     undergo a phase transition during training whereafter they migrate away from the training samples (making the DNN mapping smoother there) and towards the 
                     decision boundary (making the DNN mapping less smooth there). Grokking occurs post phase transition as a robust partition of the input space emerges
@@ -157,7 +157,7 @@
             </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3 style="padding-bottom: 0px; text-align: center;">A Phase Change in the DNN Partition <br> Geometry Leads to Grokking</h3>
+                <h3 style="padding-bottom: 0px; text-align: center;">A Phase Change in the DNN Partition Geometry Leads to Grokking</h3>
                 <div style="display: flex;justify-content: center;align-items: center;padding-top: 5%;padding-bottom: 5px/* height: 400px; */">
                             <video autoplay="" muted="" loop="" playsinline="" playbackrate="2" width="100%" style="max-height: 400px;padding-right: 5px;width: 50%;">
                                <source src="img/splinecam_mnist.mp4#t=0.001" type="video/mp4">
@@ -167,11 +167,11 @@
                 <p class="text-justify">
                     Fig: <b>Grokking Visualized.</b> Every neuron in a DNN learns feature thresholds/boundaries in the input space, 
                     dividing it into active and inactive regions. In the video we visualize the analytically computed input space partition formed by 
-                    the neuron-thresholds (black lines) of a ReLU-MLP, around three MNIST training samples (white stars). 
+                    the neuron-thresholds (black lines) and decision boundary (red line) of a ReLU-MLP, around three MNIST training samples (white stars). 
                     The DNN input-output mapping is linear/affine within each convex region, colored by the norm of the affine slope. In right-top
                     we present the Train, Test and Adversarial accuracy (robustness) and right-bottom we present the local complexity, i.e., density
-                    of non-linearities, around all training, test or random data points. We see that the network starts grokking adversarial samples
-                    as soon as a phase change occurs in the partition (left), as well as phase change in the local complexity (right-bottom) approximately
+                    of non-linearities, around training, test and random data points. We see that the network starts grokking adversarial samples
+                    as soon as a phase change occurs in the partition (left), also visible in the local complexity (right-bottom), approximately
                     after 10,000 optimization steps.
                 </p>
                 <div style="display: flex; flex-wrap: inherit; justify-content: center; padding-top: 15px; padding-bottom: 15px">
@@ -190,9 +190,9 @@
                     </div>
                 </div>
                 <p>
-                        Fig: <b>Delayed Generalization.</b> Grokking induced for test samples via large-norm initialization (Liu et al., 2022) for MLPs for varying depth being trained on MNIST. 
+                        Fig: <b>Delayed Generalization.</b> Grokking induced for test samples via large-norm initialization (Liu et al., 2022) for MLPs with varying depth, trained on MNIST. 
                         We see that the local complexity (LC) training dynamics is similar to the case of delayed robustness. LC ascents with higher concentration around training samples, following
-                        which it descends for training, test and random samples as well. <it> Where do the non-linearities migrate to? </it> We see that during the last phase of training, the non-linearities migrate
+                        which it descends for training, test and random samples as well. <em> Where do the non-linearities migrate to? </em> We see that during the last phase of training, the non-linearities migrate
                         towards the decision boundary, linearizing the function everywhere else in the process.
                 </p>
             </div>
@@ -209,8 +209,8 @@
                     Fig: <b>Linear Regions and Local Complexity.</b> Input space partition formed by a DNN trained to regress the piecewise function defined below (left) and graph of the learned function (right). Each partition region is randomly colored, and performs a single linear operation going from the input to the output. Learned function is more complex, i.e., densely changes the linear operation being performed, where the target function is non-flat.
                 </p>
                 <p class="text-justify">
-                    <it>Progress Measures</it> are defined as scalars that have a causal link with the training state of a DNN. We propose local complexity as a fine-grained progress measure,
-                    that at a high level, denotes how complex a DNN input-output mapping is for some local neighborhood in the input space. <it>How can we measure local complexity?</it> DNNs are continuous piecewise affine splines, therefore 
+                    <b><em>Progress Measures</em></b> are defined as scalars that have a causal link with the training state of a DNN. We propose local complexity as a fine-grained progress measure,
+                    that at a high level, denotes how complex a DNN input-output mapping is for some local neighborhood in the input space. <em>How can we measure local complexity?</em> DNNs are continuous piecewise affine splines, therefore 
                     whenever it is trained to regress a function (could be a classification objective as well), it forms a piecewise linear spline approximation of the target function. For example,
                     suppose we are training an MLP to regress a target function \( f: \mathbb{R}^2 \rightarrow \mathbb{R} \) defined as,
 <!--                     \( f(x_1,x_2) = sin(x_1) + cos(x_2) \) if \( x_1 < 0 \) else \( 0 \). -->
@@ -455,7 +455,7 @@
                     Fig Interactive: <b>Linear Regions and Circuits.</b> Input space spline partition (left) and network connectivity graph (right) for a randomly initialized 5 layer ReLU-MLP with 5 neurons in each layer,
                     2D input space, and 1D output space. Neurons are colored blue if active and orange if inactive. Hover and select any of the spline partition regions. 
                     Since the input-output mapping is linear per region, the activation/deactivation pattern of neurons remain the same for all vectors from any given region in the input space.
-                    This means that each region creates a unique <it>circuit</it> (Olah et al., 2020) comprising of a subset of neurons in the network. The circuit for any two neighboring regions
+                    This means that each region creates a unique <em>circuit</em> (Olah et al., 2020) comprising of a subset of neurons in the network. The circuit for any two neighboring regions
                     vary by only one neuron being activated/deactivated. This is due to the fact that the knots of the spline partition are the zero level sets of the neurons in the input space. This means that
                     crossing a boundary is equivalent to flipping on or off a neuron in the circuit. 
                 </p>
@@ -509,6 +509,13 @@
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
                     
+@article{humayun2024grokking,
+title={Deep Networks Always Grok and Here is Why},
+author={Humayun, Ahmed Imtiaz and Balestriero, Randall and Baraniuk, Richard},
+journal={arXiv preprint arXiv:2402.15555},
+year={2024}
+}
+                        
 @article{humayun2023training,
 title={Training Dynamics of Deep Network Linear Regions},
 author={Humayun, Ahmed Imtiaz and Balestriero, Randall and Baraniuk, Richard},
