@@ -459,6 +459,24 @@
                     vary by only one neuron being activated/deactivated. This is due to the fact that the knots of the spline partition are the zero level sets of the neurons in the input space. This means that
                     crossing a boundary is equivalent to flipping on or off a neuron in the circuit. 
                 </p>
+                <p>
+                    <b><em>A Circuit</em></b> is loosely defined as a subgraph of a deep neural network containing neurons
+                    (or linear combination of neurons) as nodes, and weights of the network as edges
+                    <a href="https://distill.pub/2020/circuits/zoom-in/">(Olah et al., 2020)</a>.
+                    It's commonly referred to
+                    in mechanistic interpretability literature targeted towards understanding the grokking phenomenon.  
+                    Since ideally practical DNNs are (or can be approximated as) continuous affine spline operators,
+                    for a given piece/region \( \omega \) of the spline, all input vectors \( \{x  : x \in \omega\} \),
+                    the network performs the same affine operation. The parameters of this affine operation 
+                    are functions of the activated neurons, meaning that for each region, the network forms a single circuit comprising
+                    of only the active neurons. From this perspective, our local complexity
+                    measure can be interpreted as a way to measure the density of unique circuits formed in some input space locality.
+                    The emergence of a robust partition
+                    shows that towards the end of training, the number of unique circuits get drastically reduced.
+                    This is especially true for sub-circuits corresponding to the deeper layers. This result,
+                    matches with the intuition provided by <a href="https://arxiv.org/abs/2301.05217">Nanda et al., 2023</a> on the cleanup phase of circuit formation
+                    late in training.
+                </p>
                 <div style="display: flex;justify-content: center;align-items: center;padding-top: 15px;padding-bottom: 15px">
                     <div style="display: flex; flex-wrap: wrap; max-width: 50%;">
                         <div style="display: flex; width: 100%;">
